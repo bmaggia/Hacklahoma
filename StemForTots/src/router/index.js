@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
-import Secret from "../views/Secret.vue";
+import Secret from "../views/Leaderboard.vue";
 
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -17,8 +17,8 @@ const routes = [
     component: Home
   },
   {
-    path: "/secret",
-    name: "secret",
+    path: "/leaderboard",
+    name: "leaderboard",
     component: Secret,
     meta: { requiresAuth: true }
   },

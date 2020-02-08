@@ -1,16 +1,24 @@
 <template>
   <div>
     <h3>Login</h3>
-    <form @submit.prevent="pressed">
+    <b-form @submit.prevent="pressed">
+        
       <div class="login">
-        <input type="text" placeholder="login" v-model="email" />
+          <b-form-group label="Email address:">
+              <b-form-input type="email" placeholder="login" v-model="email" />
+          </b-form-group>
       </div>
+
       <div class="password">
-        <input type="password" placeholder="password" v-model="password" />
-      </div>
-      <button>Login</button>
-    </form>
+          <b-form-group label="Password:">
+              <b-form-input type="password" placeholder="password" v-model="password" />
+          </b-form-group>
+       </div>
+
+      <b-button type="submit" variant="primary">Submit</b-button>
+
     <div class="error" v-if="error">{{error.message}}</div>
+    </b-form>
   </div>
 </template>
 
@@ -42,24 +50,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-div {
-  color: inherit;
-}
-input {
-  width: 400px;
-  padding: 30px;
-  margin: 20px;
-  font-size: 21px;
-}
-
-button {
-  width: 400px;
-  height: 75px;
-  font-size: 100%;
-}
-
-.error {
-  color: red;
-}
-</style>

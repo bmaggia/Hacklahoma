@@ -1,2 +1,0 @@
-# Hacklahoma
-Hacklahoma project

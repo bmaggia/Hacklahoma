@@ -1,29 +1,27 @@
 ﻿<template>
   <div class="index">
 	
-	<div class="nav-bar"></div>
-
-	<div id="tContainer">
+	<div class="tContainer">
 
 		<div class="question">
 
-			<h1>{{ product }}</h1>
+			<h1>Question Goes Here</h1>
 			<br />
 		</div>
 
 		<div class="answers">
 			<b-button variant="primary" id="1"> 1st Option </b-button>
 
-			<b-button id="2"> 2nd Option </b-button>
+			<b-button variant="primary" id="2"> 2nd Option </b-button>
 
-			<button id="3"> 3rd Option </button>
+			<b-button variant="primary" id="3"> 3rd Option </b-button>
 
-			<button id="4"> 4th Option </button>
+			<b-button variant="primary" id="4"> 4th Option </b-button>
 		</div>
 	</div>
 
 	<div class="footer">
-		Footer
+		
 	</div>
 
 
@@ -34,36 +32,38 @@
 
 
 <style lang="scss">
-body {
-	display: block;
-	font-family: tahoma;
-	background-color: bisque;
-	color: black;
-	margin: 2px;
+
+.index {
+    height: 100vh;
+    margin: 0 auto;
 }
 
-.nav-bar {
-	background: linear-gradient(-90deg, #84CF6A, #16C0B0);
-	height: 60px;
-}
+    body {
+        display: block;
+        font-family: sans-serif;
+        background: linear-gradient( #0caadc, #00ffb1);
+        color: black;
+        margin: 0 auto;
+    }
+
 
 .footer {
 	position: fixed;
-	background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+	background-color: darkslategray;
 	height: 60px;
 	width: 100%;
 	bottom: 0;
 }
 
-#tContainer {
-	display: block;
+.tContainer {
+	display: inline-block;
 	border-radius: 25px;
 	width: 40%;
 	padding: 10px 10px;
-	margin: 0 auto;
+	margin: 100px auto;
 	background-color: white;
 	align-content: center;
-	box-shadow: 0 0 4px blue;
+	box-shadow: 0 0 8px blue;
 }
 
 .question {
@@ -71,7 +71,7 @@ body {
 }
 
 .answers button{
-	padding: 10px 24px;
+	
 	display: block;
 	margin: 5px auto;
 }

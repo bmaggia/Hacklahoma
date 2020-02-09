@@ -18,7 +18,8 @@ export default {
   methods: {
     setupFirebase() {
       firebase.auth().onAuthStateChanged(user => {
-        if (user) {
+          if (user) {
+              console.log("Checking Log in");
           // User is signed in.
           console.log("signed in");
           this.loggedIn = true;

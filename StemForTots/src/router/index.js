@@ -20,7 +20,6 @@ const routes = [
     path: "/leaderboard",
     name: "leaderboard",
     component: Secret,
-    meta: { requiresAuth: true }
   },
   {
     path: "/login",

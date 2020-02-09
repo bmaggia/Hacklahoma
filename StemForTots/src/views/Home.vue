@@ -37,7 +37,8 @@
 body {
 	display: block;
 	font-family: tahoma;
-	background-color: bisque;
+	background: linear-gradient( #0caadc, #00ffb1);
+	height:90vh;
 	color: black;
 	margin: 2px;
 }

@@ -8,6 +8,8 @@ import store from "./store";
 import firebase from "firebase/app";
 import axios from "axios";
 
+require("firebase/firestore");
+
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 
@@ -23,6 +25,9 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+export const db = firebase.firestore();
+
 
 let app;
 

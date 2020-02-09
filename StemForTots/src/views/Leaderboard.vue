@@ -1,46 +1,68 @@
 <template>
   <div>
-    <h3>
-      <h5 class="secret" v-for="secret in secrets" :key="secret.char_id">{{secret.name}}</h5>
-      <h4>Hello World</h4>
-    </h3>
+      <div id="tContainer">
+          <h3><b>Leaderboard</b></h3>
+
+      </div>
   </div>
 </template>
 
 <script>
-import * as firebase from "firebase/app";
-import "firebase/auth";
 
-export default {
-  data() {
-    return {
-      secrets: ""
-    };
-  },
-  mounted() {
-    this.getSecrets();
-  },
-  methods: {
-    async getSecrets() {
-      const token = await firebase.auth().currentUser.getIdToken();
-      let config = {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      };
 
-      this.secrets = await this.$axios.get(
-        "http://localhost:3000/erik",
-        config
-      );
-      this.secrets = this.secrets.data;
-    }
+    import { db } from '../main.js';
+
+
+    export default {
+        Mounted() {
+            this.getLeaderboard();
+        },
+        methods: {
+            getLeaderboard() {
+
+                db.collection("users").get().then( (snapshot) => {
+
+                    snapshot.docs.forEach(doc => {
+                        console.log(doc);
+                    });
+                });
+            }
   }
 };
+
 </script>
 
-<style lang="scss" scoped>
-div {
-  color: inherit;
-}
+<style lang="scss">
+    body {
+        display: block;
+        font-family: tahoma;
+        background-color: bisque;
+        color: black;
+        margin: 2px;
+    }
+
+    .nav-bar {
+        background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+        height: 60px;
+    }
+
+
+    .footer {
+        position: fixed;
+        background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+        height: 60px;
+        width: 100%;
+        bottom: 0;
+    }
+
+    #tContainer {
+        display: block;
+        border-radius: 25px;
+        width: 600px;
+        padding: 10px 10px;
+        margin: 0 auto;
+        background-color: white;
+        align-content: center;
+        box-shadow: 0 0 4px blue;
+    }
 </style>

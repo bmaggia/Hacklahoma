@@ -20,12 +20,20 @@
         methods: {
             getLeaderboard() {
 
-                db.collection("users").get().then( (snapshot) => {
+                db.collection("users").where('score', '==', true).get()
+                    .then(snapshot => {
+                        if (snapshot.empty) {
+                            console.log('No matching documents.');
+                            return;
+                        }
 
-                    snapshot.docs.forEach(doc => {
-                        console.log(doc);
+                        snapshot.forEach(doc => {
+                            console.log(doc.id, '=>', doc.data());
+                        });
+                    })
+                    .catch(err => {
+                        console.log('Error getting documents', err);
                     });
-                });
             }
   }
 };
